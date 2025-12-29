@@ -20,7 +20,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh '''
-                adb connect android-emulator:5555
+                adb connect android-emulator:5554
                 cd app
                 ./gradlew connectedAndroidTest
                 '''
