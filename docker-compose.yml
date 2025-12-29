@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  jenkins:
+    build: ./jenkins
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - ci_net
+
+  android-emulator:
+    build: ./android-emulator
+    container_name: android-emulator
+    privileged: true
+    environment:
+      - AVD_NAME=test_avd
+    networks:
+      - ci_net
+
+networks:
+  ci_net:
+
+volumes:
+  jenkins_home:
