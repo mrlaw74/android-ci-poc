@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/your-org/android-ci-poc.git'
+                git url: 'https://github.com/mrlaw74/android-ci-poc.git'
             }
         }
 
